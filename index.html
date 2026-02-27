@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Uma Carta Especial 💜</title>
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#5f0a87,#a4508b,#fbc2eb);
+  font-family:'Georgia',serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+  color:white;
+}
+.card{
+  background:rgba(0,0,0,0.35);
+  padding:60px;
+  border-radius:25px;
+  max-width:650px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+h1{
+  font-size:2rem;
+  margin-bottom:30px;
+}
+.frase{
+  display:none;
+  font-size:1.2rem;
+  margin:15px 0;
+  animation:fade 1s ease;
+}
+button{
+  margin-top:25px;
+  padding:12px 32px;
+  border-radius:30px;
+  border:none;
+  background:white;
+  color:#7e22ce;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  position:relative;
+}
+button:hover{
+  transform:scale(1.1);
+}
+.hidden{display:none;}
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;}
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Uma Carta Para Você 💜</h1>
+
+<p class="frase">Você chegou de forma inesperada.</p>
+<p class="frase">E transformou tudo em algo especial.</p>
+<p class="frase">Meu coração encontrou o que procurava.</p>
+<p class="frase">E agora ele só quer você.</p>
+<p class="frase">Então me responde…</p>
+
+<button onclick="mostrarFrase()">Continuar ✨</button>
+
+<div id="pedido" class="hidden">
+<h2>Você aceita continuar essa história comigo? 💜</h2>
+<button onclick="aceitou()">Sim 💜</button>
+<button onmouseover="fugir(this)">Não 😅</button>
+</div>
+
+<div id="final" class="hidden">
+<h2>Você é meu melhor capítulo 💫</h2>
+</div>
+</div>
+
+<script>
+let i=0;
+const f=document.querySelectorAll(".frase");
+const b=document.querySelector("button");
+function mostrarFrase(){
+  if(i<f.length){f[i].style.display="block";i++;}
+  else{b.style.display="none";document.getElementById("pedido").classList.remove("hidden");}
+}
+function fugir(btn){
+  btn.style.position="absolute";
+  btn.style.top=Math.random()*200+"px";
+  btn.style.left=Math.random()*200+"px";
+}
+function aceitou(){
+  document.getElementById("pedido").classList.add("hidden");
+  document.getElementById("final").classList.remove("hidden");
+}
+</script>
+</body>
+</html>
